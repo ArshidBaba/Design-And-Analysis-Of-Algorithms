@@ -1,3 +1,6 @@
+# This Python code is written from the pseudocode provided by the book 'Introduction to Algorithms
+# by Cormen, Leiserson, Rivest, Stein. I have made a little changes here and there to suit it for Python.
+
 def merge_sort(A, p, r):
     if p < r:
         q = (p+r)//2
