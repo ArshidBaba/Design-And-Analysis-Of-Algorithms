@@ -39,7 +39,7 @@ def merge(A,p,q,r):
         else:
             A[k] = L[i]
         print(A)
-        
+    
     return
     
 
