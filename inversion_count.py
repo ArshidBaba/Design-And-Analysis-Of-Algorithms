@@ -10,9 +10,6 @@ def inverse(A):
         for j in range(i+1, len(A)):
             if A[i] > A[j]:
                 A[i], A[j] = swap(A[i], A[j])
-                # temp = A[i]
-                # A[i] = A[j]
-                # A[j] = temp
                 print(A)
                 print(i, j)
                 count += 1
