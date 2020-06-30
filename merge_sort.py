@@ -20,9 +20,6 @@ def merge(A,p,q,r):
     L.append(MAX)
     R.append(MAX)
 
-    print(L)
-    print(R)
-
     i = 0
     j = 0
 
@@ -39,18 +36,12 @@ def merge(A,p,q,r):
         else:
             A[k] = L[i]
         print(A)
-    
     return
     
-
 if __name__ == "__main__":
     A = [2,4,5,7,1,2,3,6]
-    # A = [8,7,6,5,4,3,2,1]
     p = 0
     q = (len(A)-1)//2
     r = len(A)-1
-
-    print(A)
-    print("p: ", p, "q: ", q, "r: ", r)
 
     merge_sort(A,p,r)
