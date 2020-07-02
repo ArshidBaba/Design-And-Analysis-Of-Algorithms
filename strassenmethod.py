@@ -1,14 +1,10 @@
 if __name__ == "__main__":
+    #Square matrices
     a = [[1,3], [7,5]]
     b = [[6, 8], [4,2]]
     c = [[0,0], [0,0]]
-    # for i in range(len(a)):
-    #     for j in range(len(a[i])):
-    #         print(a[i][j])
-    #     print("\n")
-    # print(a[0][0], " ", a[0][1],"\n")
-    # print(a[1][0], " ", a[1][1])
 
+    #step 1
     s1 = b[0][1]-b[1][1]
     s2 = a[0][0]+a[0][1]
     s3 = a[1][0]+a[1][1]
@@ -20,6 +16,7 @@ if __name__ == "__main__":
     s9 = a[0][0]-a[1][0]
     s10 = b[0][0]+b[0][1]
 
+    #Strassen's products
     p1 = a[0][0]*s1
     p2 = s2*b[1][1]
     p3 = s3*b[0][0]
@@ -28,6 +25,7 @@ if __name__ == "__main__":
     p6 = s7*s8
     p7 = s9*s10
 
+    #Resultant matrix
     c[0][0] = p5+p4-p2+p6
     c[0][1] = p1+p2
     c[1][0] = p3+p4
