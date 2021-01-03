@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+
+\usepackage[noend]{algorithmic}
+\usepackage{pdfpages}
+\title{Analysis of Insertion Sort Algorithm}
+% \date{2013-09-01}
+\author{Arshid Aslam Baba}
+\newcommand{\TITLE}[1]{\item[#1]}
+\renewcommand{\algorithmiccomment}[1]{$/\!/$ \parbox[t]{4.5cm}{\raggedright #1}}
+% ugly hack for for/while
+\newbox\fixbox
+\renewcommand{\algorithmicdo}{\setbox\fixbox\hbox{\ {} }\hskip-\wd\fixbox}
+% end of hack
+\newcommand{\algcost}[2]{\strut\hfill\makebox[1.5cm][l]{#1}\makebox[4cm][l]{#2}}
+
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\section{Overview} 
+The following pseudocode and math is from Introduction to Algorithms by CLRS.
+Insertion sort algorithm is an inplace sorting  algorithm which we will analyze for best and worst case scenarios. ~\\    
+
+
+\begin{algorithmic}[1] 
+
+  \TITLE{\textsc{Insertion-Sort}$(A)$}
+    \algcost{\textit{cost}}{\textit{times}}
+  \FOR{$j=2$ \TO $A.\mathit{length}$
+    \algcost{$c_1$}{$n$}}
+  \STATE $\mathit{key} = A[j]$
+    \algcost{$c_2$}{$n-1$}
+  \STATE \COMMENT{Insert $A[j]$ to the sorted sequence $A[1..j-1]$}
+    \algcost{$0$}{$n-1$}
+  \STATE $i = j-1$
+    \algcost{$c_4$}{$n-1$}
+  \WHILE{$i>0$ \AND $A[i]>key$
+    \algcost{$c_5$}{$\sum_{j=2}^{n} t_j$}}
+  \STATE $A[i+1]= A[i]$
+    \algcost{$c_6$}{$\sum_{j=2}^{n} (t_j-1)$}
+  \STATE $i = i-1$
+    \algcost{$c_7$}{$\sum_{j=2}^{n} (t_j-1)$}
+  \ENDWHILE
+  \STATE $A[i+1] = \mathit{key}$
+    \algcost{$c_8$}{$n-1$}
+  \ENDFOR
+\end{algorithmic}
+
+\section{Analysis} 
+The above pseudocode also has 2 columns where each row lists cost of a single step of computation and how many times that computation is carried out.
+\end{document}
