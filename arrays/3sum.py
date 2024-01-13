@@ -29,6 +29,8 @@ Explanation: The only possible triplet sums up to 0.
 nums = [-1, 0, 1, 2, -1, -4]
 
 output = []
+
+
 # for i in range(0, len(nums) - 2):
 #     for j in range(i + 1, len(nums) - 1):
 #         for k in range(j + 1, len(nums)):
@@ -42,21 +44,44 @@ output = []
 #                     output.append(temp)
 
 # print(output)
-nums = [-2, 0, 1, 1, 2]
+# t_list = []
+# for i in range(0, len(nums) - 1):
+#     for j in range(i + 1, len(nums)):
+#         t_sum = nums[i] + nums[j]
+#         if -t_sum in nums:
+#             if -t_sum not in [nums[i], nums[j]]:
+#                 t_list = [nums[i], nums[j], -t_sum]
+#                 # sorted(t_list)
+#                 t_list.sort()
+#             if t_list not in output:
+#                 output.append(t_list)
 
-output = []
-for i in range(0, len(nums) - 2):
-    for j in range(i + 1, len(nums) - 1):
-        temp = []
-        k = j + 1
-        if k < len(nums):
-            if i != j != k and nums[i] + nums[j] + nums[k] == 0:
-                temp.append(nums[i])
-                temp.append(nums[j])
-                temp.append(nums[k])
-                temp.sort()
-                if temp not in output:
-                    output.append(temp)
-            k += 1
+# print(output)
 
-print(output)
+ans = []
+nums.sort()
+
+for i in range(len(nums)):
+    if i > 0 and nums[i] == nums[i - 1]:
+        continue
+
+    j = i + 1
+    k = len(nums) - 1
+
+    while j < k:
+        sum = nums[i] + nums[j] + nums[k]
+
+        if sum < 0:
+            j += 1
+        elif sum > 0:
+            k -= 1
+        else:
+            temp = [nums[i], nums[j], nums[k]]
+            ans.append(temp)
+            j += 1
+            k -= 1
+
+            while j < k and nums[j] == nums[j - 1]:
+                j += 1
+            while j < k and nums[k] == nums[k + 1]:
+                k -= 1
