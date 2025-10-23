@@ -5,10 +5,10 @@ class ListNode:
         self.next = next
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self) -> None:
         self.head = None
 
-    def insert_at_end(self, val):
+    def insert_at_end(self, val) -> None:
         new_node = ListNode(val)
         if not self.head:
             self.head = new_node
@@ -18,7 +18,16 @@ class LinkedList:
             curr = curr.next
         curr.next = new_node
 
-    def traverse(self):
+    def insert_at_beginning(self, val) -> None:
+        new_node = ListNode(val)
+        if not self.head:
+            self.head = new_node
+            return
+        curr = self.head
+        self.head = new_node
+        new_node.next = curr
+
+    def traverse(self) -> None:
         curr = self.head
         while curr:
             print(curr.val, end=" -> ")
@@ -29,6 +38,6 @@ class LinkedList:
 ll = LinkedList()
 ll.insert_at_end(34)
 ll.insert_at_end(54)
-ll.insert_at_end(678)
-ll.insert_at_end(435)
+ll.insert_at_end(67)
+ll.insert_at_beginning(23)
 ll.traverse()
